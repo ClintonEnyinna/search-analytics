@@ -13,3 +13,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import bootstrap from 'bootstrap'
+import "../controllers"
