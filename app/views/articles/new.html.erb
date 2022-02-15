@@ -1,0 +1,30 @@
+<div class="container" style="max-width: 500px">
+  <h4 class="text-center mt-5">Add a new article!</h4>
+  <%= form_for(@article) do |f| %>
+    <% if @article.errors.any? %>
+      <div>
+        <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group mb-3">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control'%>
+    </div>
+    <div class="form-group mb-3">
+      <%= f.label :author %>
+      <%= f.text_field :author, class: 'form-control'%>
+    </div>
+    <div class="form-group mb-3">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control'%>
+    </div>
+    <div class="text-center">
+      <%= f.submit 'Add Article', class: 'btn btn-primary mt-2 mb-5' %>
+    </div>
+  <% end %>
+</div>
