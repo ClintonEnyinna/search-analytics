@@ -5,7 +5,11 @@ export default class extends Controller {
   static targets = [ "formButton", "articles" ]
 
   search() {
-    this.formButtonTarget.click()
+    clearTimeout(this.debounce);
+
+    this.debounce = setTimeout(() => {
+      this.formButtonTarget.click()
+    }, 300)
   }
 
   updateArticles(e) {
