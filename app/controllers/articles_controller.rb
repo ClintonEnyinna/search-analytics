@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :logged_in?
+
   def index
     @articles = Article.all
   end
@@ -43,9 +45,13 @@ class ArticlesController < ApplicationController
     return if query.present? && last_search.query.include?(query)
 
     if query.downcase.include?(last_search.query.downcase)
-      last_search.update!(query: query)
+      last_search.update!(query: query, user: @current_user)
     else
-      SearchAnalytic.create!(query: query)
+      SearchAnalytic.create!(query: query, user: @current_user)
     end
+  end
+
+  def logged_in?
+    redirect_to login_path if current_user.nil?
   end
 end
