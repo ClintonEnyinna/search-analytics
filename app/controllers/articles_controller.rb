@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
       @articles = Article.all
     end
 
+    track_search(params[:search])
+
     render :search, layout: false
   end
 
@@ -31,5 +33,19 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :author, :body)
+  end
+
+  def track_search(query)
+    return if query.nil?
+
+    last_search = SearchAnalytic.last
+
+    return if query.present? && last_search.query.include?(query)
+
+    if query.downcase.include?(last_search.query.downcase)
+      last_search.update!(query: query)
+    else
+      SearchAnalytic.create!(query: query)
+    end
   end
 end
