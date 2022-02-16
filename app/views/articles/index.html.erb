@@ -1,0 +1,20 @@
+<% content_for :title, "Articles" %>
+
+<h2 class="mt-5 text-center">Welcome to Latest Articles!</h2>
+
+<div class="container" data-controller="search">
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_tag search_articles_path, method: :get, remote: true, class: 'row mt-5 justify-content-around', data: { action: "ajax:success->search#updateArticles" } do %>
+        <div class="col-9 w-50">
+          <%= text_field_tag :search, params[:search], class: 'form-control me-3', data: { action: "input->search#search" }, placeholder: 'start typing...' %>
+          <button type="submit" data-search-target="formButton" class="btn btn-primary" hidden>Search</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-5" data-search-target="articles">
+    <%= render partial: "article", collection: @articles %>
+  </div>
+</div>
