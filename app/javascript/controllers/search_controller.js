@@ -9,7 +9,7 @@ export default class extends Controller {
 
     this.debounce = setTimeout(() => {
       this.formButtonTarget.click()
-    }, 300)
+    }, 270)
   }
 
   updateArticles(e) {
