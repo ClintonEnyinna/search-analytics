@@ -37,20 +37,6 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :author, :body)
   end
 
-  def track_search(query)
-    return if query.nil?
-
-    last_search = SearchAnalytic.last
-
-    return if query.present? && last_search.query.include?(query)
-
-    if query.downcase.include?(last_search.query.downcase)
-      last_search.update!(query: query, user: @current_user)
-    else
-      SearchAnalytic.create!(query: query, user: @current_user)
-    end
-  end
-
   def logged_in?
     redirect_to login_path if current_user.nil?
   end
