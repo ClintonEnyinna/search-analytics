@@ -15,6 +15,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe '#create' do
     let(:email) { Faker::Internet.email }
+
     it 'creates a new user, logins the user and redirects to root' do
       expect { post :create, params: { user: { name: 'test', email: email } } }.to change(User, :count).by(1)
 

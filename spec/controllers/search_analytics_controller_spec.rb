@@ -9,7 +9,7 @@ RSpec.describe SearchAnalyticsController, type: :controller do
     context 'when logged in' do
       before { session[:email] = user.email }
 
-      it 'renders the new template with status 200' do
+      it 'renders the show template with status 200' do
         get :show
 
         expect(response).to render_template(:show)
