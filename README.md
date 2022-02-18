@@ -1,24 +1,34 @@
-# README
+Search Analytics
+================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Online articles app with search and analytics.
 
-Things you may want to cover:
+## What it does?
+Users can create a new article, search in real-time and see insights on their frequent and latest searches.
 
-* Ruby version
+### Prerequisites
+- Ruby: 2.7.4
+- Rails: 6.1.4.6
 
-* System dependencies
+## Built with
+* [pg_search](https://github.com/Casecommons/pg_search) - Search Engine that takes advantage of PostgreSQL's full text search.
+* [Chartkick](https://chartkick.com/) - Charts
+* [Sidekiq](https://github.com/mperham/sidekiq) - Sidekiq
+* [Redis](https://github.com/redis/redis-rb) - Redis db
+* [Rails](https://rubyonrails.org/) - Framework 
+* [Ruby](https://www.ruby-lang.org/en/) - Programming language used
+* [VS Code](https://code.visualstudio.com/) - The code editor used
 
-* Configuration
+## Live Version 🌟
+* https://search-analytic-articles.herokuapp.com/users/new
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Local
+### Step 1: Clone and install dependencies
+- Clone the repo and run `bundle install` to get all the gems on your terminal.
+### Step 2: Run database migration
+- From terminal type `rails db:create` and then `rails db:migrate` to get your schema updated
+### Step 3: Work on IRB
+- Start redis server `redis-server` and sidekiq `bundle exec sidekiq`
+- Start the server `rails server` and open your browser
+### Step 4: View your app
+- Navigate to `localhost:3000` on your browser to see your app working.
