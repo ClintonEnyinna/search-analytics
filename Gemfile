@@ -35,8 +35,11 @@ group :development, :test do
   # testing
   gem 'rspec-rails', '~> 5.0.0'
 
-  # factory data
+  # create data with ease
   gem 'factory_bot_rails'
+
+  # fake data
+  gem 'faker'
 end
 
 group :development do
