@@ -55,3 +55,6 @@ gem 'stimulus-rails'
 
 # background processing
 gem 'sidekiq'
+
+# chart
+gem "chartkick"

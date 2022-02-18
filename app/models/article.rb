@@ -1,10 +1,10 @@
 class Article < ApplicationRecord
   include PgSearch::Model
-  pg_search_scope :pg_search, 
+  pg_search_scope :pg_search,
                   against: {
                     title: 'A',
                     author: 'B',
-                    body: 'C',
+                    body: 'C'
                   },
                   using: {
                     tsearch: { prefix: true }

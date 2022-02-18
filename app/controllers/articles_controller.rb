@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
   before_action :logged_in?
 
   def index
+    initialize_redis_key
+
     @articles = Article.all
   end
 
@@ -39,5 +41,9 @@ class ArticlesController < ApplicationController
 
   def logged_in?
     redirect_to login_path if current_user.nil?
+  end
+
+  def initialize_redis_key
+    $redis.set("query:user:#{@current_user.id}", '')
   end
 end
