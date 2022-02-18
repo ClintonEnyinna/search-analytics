@@ -20,7 +20,7 @@ Users can create a new article, search in real-time and see insights on their fr
 * [VS Code](https://code.visualstudio.com/) - The code editor used
 
 ## Live Version 🌟
-* https://search-analytic-articles.herokuapp.com/users/new
+* https://search-analytic-articles.herokuapp.com
 
 ## Local
 ### Step 1: Clone and install dependencies
