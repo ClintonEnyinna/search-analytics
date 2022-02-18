@@ -177,6 +177,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     sidekiq (6.4.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -233,6 +235,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
+  shoulda-matchers (~> 5.0)
   sidekiq
   spring
   stimulus-rails
