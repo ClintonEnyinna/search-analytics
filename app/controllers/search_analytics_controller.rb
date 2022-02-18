@@ -4,10 +4,8 @@ class SearchAnalyticsController < ApplicationController
   def show
     @latest_queries = SearchAnalytic.where(user: @current_user)
                                     .order(updated_at: :desc)
-                                    .limit(5)
 
-    @top_queries = SearchAnalytic.where(user: @current_user)
-                                 .limit(5)
+    @top_queries = SearchAnalytic.most_searched_query_sql(@current_user)
   end
 
   private
